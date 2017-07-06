@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pilot: one
+  date: 2017-07-06
+  startplace: MyString
+  stopplace: MyString
+  description: MyText
+  duration: 
+  length: 
+
+two:
+  pilot: two
+  date: 2017-07-06
+  startplace: MyString
+  stopplace: MyString
+  description: MyText
+  duration: 
+  length: 
