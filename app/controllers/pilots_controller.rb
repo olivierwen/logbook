@@ -28,7 +28,8 @@ class PilotsController < ApplicationController
 
     respond_to do |format|
       if @pilot.save
-        format.html { redirect_to @pilot, notice: 'Pilot was successfully created.' }
+        session[:pilot_id] = @pilot.id
+        format.html { redirect_to @pilot, notice: 'Le profil pilote a correctement été créé.' }
         format.json { render :show, status: :created, location: @pilot }
       else
         format.html { render :new }

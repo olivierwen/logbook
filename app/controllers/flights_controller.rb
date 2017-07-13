@@ -1,4 +1,6 @@
 class FlightsController < ApplicationController
+  before_action :require_permission, only: %i[edit destroy]
+
   # GET /flights
   # GET /flights.json
   def index

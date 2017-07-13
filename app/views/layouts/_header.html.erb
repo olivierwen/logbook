@@ -1,3 +1,9 @@
 <header>
-  <%= link_to 'Se connecter', new_pilot_path %>
+  <% if logged_in? %>
+    <%= "Hello #{current_user.name}!" %>
+    <%= link_to 'Se déconnecter', session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'S \'enregistrer', new_pilot_path %>
+    <%= link_to 'Se connecter', new_session_path %>
+  <% end %>
 </header>

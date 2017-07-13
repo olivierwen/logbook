@@ -24,7 +24,7 @@
         <td><%= pilot.email %></td>
         <td><%= pilot.birthdate %></td>
         <td><%= pilot.description %></td>
-        <td><%= link_to 'Show', pilot %></td>
+        <td><%= link_to 'Show', pilot_path(pilot) %></td>
         <td><%= link_to 'Edit', edit_pilot_path(pilot) %></td>
         <td><%= link_to 'Destroy', pilot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
