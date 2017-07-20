@@ -1,5 +1,6 @@
 class FlightsController < ApplicationController
   before_action :require_permission, only: %i[edit destroy]
+  before_action :set_flight, only: [:show, :edit, :update, :destroy]
 
   # GET /flights
   # GET /flights.json
@@ -23,6 +24,7 @@ class FlightsController < ApplicationController
 
   def create
     @flight = Flight.new(flight_params)
+    @flight.pilot_id = session[:pilot_id]
 
     respond_to do |format|
       if @flight.save
@@ -39,4 +41,10 @@ class FlightsController < ApplicationController
   def flight_params
     params.require(:flight).permit(:reference,:startplace, :stopplace, :description, :duration, :length)
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_flight
+      @flight = Flight.find(params[:id])
+    end
 end
