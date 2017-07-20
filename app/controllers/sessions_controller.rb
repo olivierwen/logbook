@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
 
   def create
     pilot = Pilot.find_by(pseudo: params[:pseudo])
-    if pilot&pilot.authenticate(params[:password])
+    if pilot && pilot.authenticate(params[:password])
       session[:pilot_id] = pilot.id
-      redirect_to pilots_url, notice: 'Connecté !'
+      redirect_to pilot_path, notice: 'Connecté !'
     else
       flash.now.alert = 'Pseudo ou mot de passe invalide !'
       render :new

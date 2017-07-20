@@ -20,4 +20,23 @@ class FlightsController < ApplicationController
   # GET /flights/1/edit
   def edit
   end
+
+  def create
+    @flight = Flight.new(flight_params)
+
+    respond_to do |format|
+      if @flight.save
+        session[:flight_id] = @flight.id
+        format.html { redirect_to @flight, notice: 'Le vol a correctement été déclaré.' }
+        format.json { render :show, status: :created, location: @flight }
+      else
+        format.html { render :new }
+        format.json { render json: @flight.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def flight_params
+    params.require(:flight).permit(:reference,:startplace, :stopplace, :description, :duration, :length)
+  end
 end

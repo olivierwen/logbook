@@ -28,6 +28,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# ransack for search
+gem 'ransack'
+
+# formtastic for nice forms
+gem 'formtastic'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
