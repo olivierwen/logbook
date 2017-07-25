@@ -22,6 +22,14 @@ class FlightsController < ApplicationController
   def edit
   end
 
+  # Load stats for home page
+  def stats
+    # nb of flight last 30days
+    @nb_flights_30d = Flight.where('created_at > ?', 30.days.ago).count
+    # top 3 longest flights
+    @longest_flight = Flight.all.order('length desc').limit(3)
+  end
+
   def create
     @flight = Flight.new(flight_params)
     @flight.pilot_id = session[:pilot_id]

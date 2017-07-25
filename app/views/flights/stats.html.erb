@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Statistiques</h1>
+
+<h3><%= @nb_flights_30d %> vols déclarés ce mois</h3>
+
+
+<h3>Meilleurs vols</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Pilote</th>
+      <th>Lieu de départ</th>
+      <th>Lieu d'arrivée</th>
+      <th>Description</th>
+      <th>Durée</th>
+      <th>Date</th>
+      <th>Distance</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @longest_flight.each do |flight| %>
+      <tr>
+        <td><%= flight.pilot_id %></td>
+        <td><%= flight.startplace %></td>
+        <td><%= flight.stopplace %></td>
+        <td><%= flight.description %></td>
+        <td><%= flight.duration %></td>
+        <td><%= flight.date %></td>
+        <td><%= flight.length %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

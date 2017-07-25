@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'sessions/new'
 
+  get '/stats', to: 'flights#stats'
+
   root to: "pilots#index"
   resources :flights
   resources :pilots
