@@ -1,11 +1,13 @@
-<header>
-  <% if logged_in? %>
-    <%= "Hello #{current_user.name}!" %>
-    <%= link_to 'Se déconnecter', session_path, method: :delete %>
-    <%= link_to 'Déclarer un vol', new_flight_path, method: :get %>
-    <%= link_to 'Mon profil', pilot_path(:id => current_user.id), method: :get%>
-  <% else %>
-    <%= link_to 'S \'enregistrer', new_pilot_path %>
-    <%= link_to 'Se connecter', new_session_path %>
-  <% end %>
-</header>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <% if logged_in? %>
+      <%= "Hello #{current_user.name}!" %>
+      <%= link_to 'Se déconnecter', session_path, method: :delete %>
+      <%= link_to 'Déclarer un vol', new_flight_path, method: :get %>
+      <%= link_to 'Mon profil', pilot_path(:id => current_user.id), method: :get%>
+    <% else %>
+      <%= link_to 'S \'enregistrer', new_pilot_path, {:style=>'color:#FFFFFF;', :class => "btn btn-info"} %>
+      <%= link_to 'Se connecter', new_session_path, {:style=>'color:#FFFFFF;', :class => "btn btn-success"} %>
+    <% end %>
+  </div>
+</nav>
