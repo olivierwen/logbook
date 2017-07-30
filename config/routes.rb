@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get '/stats', to: 'flights#stats'
 
-  root to: "pilots#index"
+  root to: "flights#stats"
   resources :flights
   resources :pilots
   resource :session, only: %i[new create destroy]

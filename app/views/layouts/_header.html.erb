@@ -1,8 +1,9 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
+    <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-fire"></span> Carnet de vol</a>
     <% if logged_in? %>
       <%= "Hello #{current_user.name}!" %>
-      <%= link_to 'Se déconnecter', session_path, method: :delete %>
+      <%= link_to 'Se déconnecter', session_path, method: :delete, :class => "btn btn-warning" %>
       <%= link_to 'Déclarer un vol', new_flight_path, method: :get %>
       <%= link_to 'Mon profil', pilot_path(:id => current_user.id), method: :get%>
     <% else %>
