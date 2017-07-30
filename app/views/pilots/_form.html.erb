@@ -1,57 +1,59 @@
 <%= form_with(model: pilot, local: true) do |form| %>
-  <% if pilot.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(pilot.errors.count, "error") %> prohibited this pilot from being saved:</h2>
+  <div class="form-group">
+    <% if pilot.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(pilot.errors.count, "error") %> prohibited this pilot from being saved:</h2>
 
-      <ul>
-      <% pilot.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% pilot.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :pseudo %>
+      <%= form.text_field :pseudo, id: :pilot_pseudo, :class => "form-control" %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :pseudo %>
-    <%= form.text_field :pseudo, id: :pilot_pseudo %>
-  </div>
+    <div class="field">
+      <%= form.label :password %>
+      <%= form.password_field :password, id: :pilot_password, :class => "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password, id: :pilot_password %>
-  </div>
+    <div class="field">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation, id: :pilot_password_confirmation, :class => "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, id: :pilot_password_confirmation %>
-  </div>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :pilot_name, :class => "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :pilot_name %>
-  </div>
+    <div class="field">
+      <%= form.label :firstname %>
+      <%= form.text_field :firstname, id: :pilot_firstname, :class => "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :firstname %>
-    <%= form.text_field :firstname, id: :pilot_firstname %>
-  </div>
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email, id: :pilot_email, :class => "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :pilot_email %>
-  </div>
+    <div class="field">
+      <%= form.label :birthdate %>
+      <%= form.date_select :birthdate, id: :pilot_birthdate %>
+    </div>
 
-  <div class="field">
-    <%= form.label :birthdate %>
-    <%= form.date_select :birthdate, id: :pilot_birthdate %>
-  </div>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :pilot_description, :class => "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :pilot_description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+      <%= form.submit 'Créer le profil', :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
