@@ -25,7 +25,7 @@
   <tbody>
     <% @longest_flight.each do |flight| %>
       <tr>
-        <td><%= flight.pilot_id %></td>
+        <td><%= flight.pilot.pseudo %></td>
         <td><%= flight.startplace %></td>
         <td><%= flight.stopplace %></td>
         <td><%= flight.description %></td>

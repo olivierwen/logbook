@@ -1,12 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
-  <strong>Déco:</strong>
+  <strong>Pilote :</strong>
+  <%= @flight.pilot.pseudo %>
+</p>
+
+<p>
+  <strong>Décollage:</strong>
   <%= @flight.startplace %>
 </p>
 
 <p>
-  <strong>Attero:</strong>
+  <strong>Atterrissage:</strong>
   <%= @flight.stopplace %>
 </p>
 
@@ -30,5 +36,5 @@
   <%= @flight.description %>
 </p>
 
-<%= link_to 'Edit', edit_flight_path(@flight) %> |
-<%= link_to 'Back', flights_path %>
+<%= link_to 'Editer', edit_flight_path(@flight) %> |
+<%= link_to 'Retour', flights_path %>
