@@ -5,6 +5,11 @@ class PilotsController < ApplicationController
   # GET /pilots.json
   def index
     @pilots = Pilot.all
+    if params[:search]
+      @pilots = Pilot.search(params[:search]).order("created_at DESC")
+    else
+      @pilots = Pilot.all.order('created_at DESC')
+    end
   end
 
   # GET /pilots/1

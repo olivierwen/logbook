@@ -6,7 +6,13 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     @flights = Flight.all
+    if params[:search]
+      @flights = Flight.search(params[:search]).order("created_at DESC")
+    else
+      @flights = Flight.all.order('created_at DESC')
+    end
   end
+  
 
   # GET /flights/1
   # GET /flights/1.json
