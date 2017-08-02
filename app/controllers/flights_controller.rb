@@ -53,7 +53,7 @@ class FlightsController < ApplicationController
   end
 
   def flight_params
-    params.require(:flight).permit(:reference,:startplace, :stopplace, :description, :duration, :length)
+    params.require(:flight).permit(:reference,:startplace, :stopplace, :date, :description, :duration, :length)
   end
 
   private
