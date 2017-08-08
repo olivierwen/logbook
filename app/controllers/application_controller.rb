@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user, :logged_in?
+  before_action :set_locale
 
   private
 
@@ -19,5 +20,10 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
       #Or do something else here
     end
+  end
+
+  # default language : french
+  def set_locale
+    I18n.locale = "fr"
   end
 end
