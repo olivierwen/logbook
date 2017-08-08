@@ -3,9 +3,9 @@
 <h1>Vols</h1>
 
 <h2>Rechercher</h2>
-<%= form_tag(flights_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Rechercher dans les vols" %>
-  <%= submit_tag "Rechercher" %>
+<%= form_tag(flights_path, :method => "get", id: "search-form", class:"form-inline") do %>
+    <%= text_field_tag :search, params[:search], class:"form-control", placeholder: "Rechercher dans les vols" %>
+    <%= submit_tag "Rechercher", class:"btn btn-default" %>
 <% end %>
 
 <% if @flights.present? %>

@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   # Check if user owner (todo : or admin ?)
   def require_permission
-    if current_user != Pilot.find(params[:id]).pilot
+    if current_user != Pilot.find(params[:id])
       redirect_to root_path
       #Or do something else here
     end
