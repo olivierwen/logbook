@@ -3,6 +3,6 @@ class Flight < ApplicationRecord
   validates :startplace, :stopplace, :date, :presence => true
 
   def self.search(search)
-    where("startplace LIKE ? OR stopplace LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
+    where("startplace ILIKE ? OR stopplace ILIKE ? OR description ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
   end
 end
