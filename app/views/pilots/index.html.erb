@@ -33,9 +33,9 @@
           <td><%= pilot.birthdate %></td>
           <td><%= pilot.description %></td>
           <td><%= pilot.flights_count %></td>
-          <td><%= link_to 'Show', pilot_path(pilot) %></td>
-          <td><%= link_to 'Edit', edit_pilot_path(pilot) %></td>
-          <td><%= link_to 'Destroy', pilot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to t('activerecord.misc.show'), pilot_path(pilot) %></td>
+          <td><%= link_to t('activerecord.misc.edit'), edit_pilot_path(pilot) %></td>
+          <td><%= link_to t('activerecord.misc.destroy'), pilot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

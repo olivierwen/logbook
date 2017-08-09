@@ -1,9 +1,10 @@
 fr:
   activerecord:
     misc:
-      show: "voir"
-      edit: "modifier"
-      destroy: "supprimer"
+      show: "Voir"
+      edit: "Modifier"
+      destroy: "Supprimer"
+      back: "Retour"
     models:
       flight: "Vol"
       pilot: "Pilote"
