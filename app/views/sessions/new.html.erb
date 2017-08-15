@@ -1,0 +1,18 @@
+<h1>Log In</h1>
+<%= form_with url: session_path do |f| %>
+
+
+  <div class="field">
+    <%= f.label :pseudo %><br />
+    <%= f.text_field :pseudo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Log In' %>
+  </div>
+<% end %>

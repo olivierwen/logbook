@@ -1,37 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pilots</h1>
+<h1>Pilotes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Pseudo</th>
-      <th>Name</th>
-      <th>Firstname</th>
-      <th>Email</th>
-      <th>Birthdate</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h2>Rechercher</h2>
+<%= form_tag(pilots_path, :method => "get", id: "search-form", class:"form-inline") do %>
+  <%= text_field_tag :search, params[:search], class:"form-control", placeholder: "Rechercher dans les pilotes" %>
+  <%= submit_tag "Rechercher", class:"btn btn-default" %>
+<% end %>
 
-  <tbody>
-    <% @pilots.each do |pilot| %>
+<% if @pilots.present? %>
+  <table class="table table-condensed">
+    <thead>
       <tr>
-        <td><%= pilot.pseudo %></td>
-        <td><%= pilot.name %></td>
-        <td><%= pilot.firstname %></td>
-        <td><%= pilot.email %></td>
-        <td><%= pilot.birthdate %></td>
-        <td><%= pilot.description %></td>
-        <td><%= link_to 'Show', pilot %></td>
-        <td><%= link_to 'Edit', edit_pilot_path(pilot) %></td>
-        <td><%= link_to 'Destroy', pilot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Pseudo</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Date de naissance</th>
+        <th>Description</th>
+        <th>Nb de vol</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Pilot', new_pilot_path %>
+    <tbody>
+      <% @pilots.each do |pilot| %>
+        <tr>
+          <td><%= pilot.pseudo %></td>
+          <td><%= pilot.name %></td>
+          <td><%= pilot.firstname %></td>
+          <td><%= pilot.email %></td>
+          <td><%= pilot.birthdate %></td>
+          <td><%= pilot.description %></td>
+          <td><%= pilot.flights_count %></td>
+          <td><%= link_to t('activerecord.misc.show'), pilot_path(pilot) %></td>
+          <td><%= link_to t('activerecord.misc.edit'), edit_pilot_path(pilot) %></td>
+          <td><%= link_to t('activerecord.misc.destroy'), pilot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Aucun pilote ne correspond à votre recherche : <%= params[:search] %>.</p>
+<% end %>

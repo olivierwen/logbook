@@ -5,6 +5,11 @@ class PilotsController < ApplicationController
   # GET /pilots.json
   def index
     @pilots = Pilot.all
+    if params[:search]
+      @pilots = Pilot.search(params[:search]).order("created_at DESC")
+    else
+      @pilots = Pilot.all.order('created_at DESC')
+    end
   end
 
   # GET /pilots/1
@@ -28,7 +33,8 @@ class PilotsController < ApplicationController
 
     respond_to do |format|
       if @pilot.save
-        format.html { redirect_to @pilot, notice: 'Pilot was successfully created.' }
+        session[:pilot_id] = @pilot.id
+        format.html { redirect_to @pilot, notice: 'Le profil pilote a correctement été créé.' }
         format.json { render :show, status: :created, location: @pilot }
       else
         format.html { render :new }

@@ -1,0 +1,10 @@
+<div class="col-md-6">
+    <h1>Déclarer un vol</h1>
+    <% if logged_in? %>
+        <%= render 'form', flight: @flight %>
+    <% else %>
+        <p>Vous devez être connecté pour déclarer un vol !</p>
+    <% end %>
+
+    <%= link_to 'Retour', flights_path %>
+</div>
